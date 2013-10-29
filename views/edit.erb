@@ -1,1 +1,17 @@
-edit.erb
+<!DOCTYPE HTML>
+
+<html>
+<body>
+
+<%Game.all.each do |game| %>
+	
+<p><%=game.name%></p>
+
+<%end %>
+  <form action="/edit_games" method="post">
+  Old Game title: <input type="text" name="oname"><br />
+  New Game title: <input type="text" name="nname"><br />
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>

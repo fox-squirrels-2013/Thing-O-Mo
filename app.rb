@@ -18,6 +18,10 @@ post '/create' do
 	erb :created_page
 end
 
+get '/read' do
+	erb :read
+end
+
 get '/edit' do
 	erb :edit
 end
