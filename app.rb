@@ -9,10 +9,15 @@ get '/' do
   erb :index
 end
 
-get '/create' do
-	erb :create
+get '/new' do
+	erb :new
 end
 
 post '/create' do
 	Game.create(:name => ("#{params[:name]}"))
+	erb :created_page
+end
+
+get '/edit' do
+	erb :edit
 end
