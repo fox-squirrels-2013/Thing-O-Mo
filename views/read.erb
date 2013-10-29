@@ -2,12 +2,14 @@
 
 <html>
 <body>
-
-<%Game.all.each do |game| %>
+<%g = Game.all.sort!%>
+<%g.each do |game| %>
 	
 <p><%=game.name%></p>
 
 <%end %>
+
+<a href="/">Home</a>
   
 </body>
 </html>

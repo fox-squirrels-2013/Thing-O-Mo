@@ -14,7 +14,7 @@ get '/new' do
 end
 
 post '/create' do
-	Game.create(:name => ("#{params[:name]}"))
+	Game.create(:name => ("#{params[:name].strip}"))
 	erb :created_page
 end
 
@@ -24,4 +24,19 @@ end
 
 get '/edit' do
 	erb :edit
+end
+
+post '/edit_games' do
+	game = Game.find_by(name: "#{params[:oname]}") 
+	game.update(name: "#{params[:nname]}")
+	erb :edited_game
+end
+
+get '/delete' do
+	erb :delete
+end
+
+post '/delete_games' do
+	Game.find_by(name: "#{params[:name]}").destroy
+	erb :deleted_game
 end
